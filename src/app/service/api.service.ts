@@ -14,15 +14,16 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  getEstados () {
+  getEstados() {
     return this.http.get<Estado[]>(urlApiEstados);
   }
 
-  getCidades (eId: number) {
-    return this.http.get<Cidade[]>('https://servicodados.ibge.gov.br/api/v1/localidades/estados/'+ eId +'/municipios');
+  getCidades(eId: number) {
+    return this.http.get<Cidade[]>('https://servicodados.ibge.gov.br/api/v1/localidades/estados/' + eId + '/municipios');
   }
 
-  getDadosMunicipio (mId: number, mesAno: number) {
-    return this.http.get<DadosGov>('http://www.transparencia.gov.br/api-de-dados/bolsa-familia-por-municipio?mesAno=' + mesAno + '&codigoIbge=' + mId + '&pagina=1');
+  getDadosMunicipio(mId: number, mesAno: number) {
+    return this.http.get<DadosGov>(
+      'http://www.transparencia.gov.br/api-de-dados/bolsa-familia-por-municipio?mesAno=' + mesAno + '&codigoIbge=' + mId + '&pagina=1');
   }
 }
