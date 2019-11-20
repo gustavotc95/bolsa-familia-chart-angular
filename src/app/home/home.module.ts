@@ -7,13 +7,12 @@ import { FormComponent } from './form/form.component';
 import { SharedModule } from '../shared/shared.module';
 
 
-
 @NgModule({
   declarations: [FormComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
-    SharedModule,
+    SharedModule
   ],
   providers: [HomeService]
 })

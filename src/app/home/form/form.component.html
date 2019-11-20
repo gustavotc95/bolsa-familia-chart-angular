@@ -1,2 +1,24 @@
 <app-header></app-header>
-<p>form works!</p>
+<div class="form-section">
+    <div class="container">
+        <div class="form-group">
+          <label for="estado">Estado</label>
+          <select class="form-select" name="estado" id="estado" #selectedEstado (change)="getCidades(selectedEstado.value)">
+              <option value="">Escolha o estado</option>
+              <option *ngFor="let estado of estados" [value]="estado.id">{{estado.nome}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="cidade">Cidade</label>
+          <select class="form-select" name="cidade" id="cidade" ng-model="selectedcidade">
+              <option value="">Escolha a cidade</option>
+              <option *ngFor="let cidade of cidades" [value]="cidade.id">{{cidade.nome}}</option>
+          </select>
+        </div>
+        <div class="chart">
+            <div *ngIf="chart">
+                <canvas id="canvas">{{ chart }}</canvas>
+            </div>
+        </div>
+    </div>
+</div>
