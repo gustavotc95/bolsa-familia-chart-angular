@@ -3,22 +3,26 @@
     <div class="container">
         <div class="form-group">
           <label for="estado">Estado</label>
-          <select class="form-select" name="estado" id="estado" #selectedEstado (change)="getCidades(selectedEstado.value)">
+          <select class="form-select" name="estado" id="estado" #selectedEstado (change)="listaCidades(selectedEstado.value)">
               <option value="">Escolha o estado</option>
               <option *ngFor="let estado of estados" [value]="estado.id">{{estado.nome}}</option>
           </select>
         </div>
         <div class="form-group">
           <label for="cidade">Cidade</label>
-          <select class="form-select" name="cidade" id="cidade" ng-model="selectedcidade">
+          <select class="form-select" name="cidade" id="cidade" #selectedCidade (change)="listaDadosMunicipio(selectedCidade.value)">
               <option value="">Escolha a cidade</option>
               <option *ngFor="let cidade of cidades" [value]="cidade.id">{{cidade.nome}}</option>
           </select>
         </div>
         <div class="chart">
-            <div *ngIf="chart">
+            <div class="chart-container" [ngClass]="chartShow ? 'show' : 'out'">
                 <canvas id="canvas">{{ chart }}</canvas>
             </div>
+            <div class="loading" [ngClass]="loading && !chartShow ? 'show' : 'out'">
+                <div class="loader"></div>
+            </div>
+            <div class="else-chart" [ngClass]="!chartShow && !loading ? 'show' : 'out'">Selecione o estado e a cidade para visualizar o gráfico</div>
         </div>
     </div>
 </div>
