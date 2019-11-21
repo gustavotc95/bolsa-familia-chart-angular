@@ -19,7 +19,7 @@ export class ApiService {
   }
 
   getCidades(eId: number) {
-    return this.http.get<Cidade[]>('https://servicodados.ibge.gov.br/api/v1/localidades/estados/' + eId + '/municipios');
+    return this.http.get<Cidade[]>(urlApiEstados + eId + '/municipios');
   }
 
   getDadosMunicipio(mId: number, mesAno: number) {
