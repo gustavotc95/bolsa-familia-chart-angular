@@ -4,7 +4,7 @@ import { Estado } from './estado';
 import { Cidade } from './cidade';
 import { DadosGov } from './dadosGov';
 
-const urlApiEstados = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados';
+const urlApiEstados = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/';
 
 @Injectable({
   providedIn: 'root'

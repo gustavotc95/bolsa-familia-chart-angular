@@ -87,12 +87,16 @@ export class FormComponent implements OnInit {
       date.setMonth(date.getMonth() - 1);
     }
     meses.splice(0, 1);
-    return meses;
+    const mesesSelecionados = meses.reverse();
+    console.log(mesesSelecionados);
+    return mesesSelecionados;
   }
 
   criaGrafico(dados: DadosGov[]) {
     const quantidade: Array<number> = [];
     const valor: Array<number>  = [];
+    this.mesesAteriores = [];
+    console.log(dados);
     dados.forEach((dado, index) => {
       quantidade[index] = dado.quantidadeBeneficiados;
       valor[index] = dado.valor;
