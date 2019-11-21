@@ -58,6 +58,7 @@ export class FormComponent implements OnInit {
 
   listaDadosMunicipio(mId: number): void {
     const meses: any = this.getMeses();
+    this.dados = [];
     meses.forEach((mes: number, index: number)  => {
       this.apiService.getDadosMunicipio(mId, mes).subscribe(
         res => {
@@ -81,9 +82,9 @@ export class FormComponent implements OnInit {
 
   getMeses() {
     const date = new Date();
-    const meses = [];
+    let meses = [];
     for (let i = 0; i < 13; i++) {
-      meses.push(String(date.getFullYear()) + this.addZero(date.getMonth() + 1));
+      meses[i] = String(date.getFullYear()) + this.addZero(date.getMonth() + 1);
       date.setMonth(date.getMonth() - 1);
     }
     meses.splice(0, 1);
