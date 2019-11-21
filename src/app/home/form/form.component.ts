@@ -89,7 +89,6 @@ export class FormComponent implements OnInit {
     }
     meses.splice(0, 1);
     const mesesSelecionados = meses.reverse();
-    console.log(mesesSelecionados);
     return mesesSelecionados;
   }
 
@@ -97,7 +96,6 @@ export class FormComponent implements OnInit {
     const quantidade: Array<number> = [];
     const valor: Array<number>  = [];
     this.mesesAteriores = [];
-    console.log(dados);
     dados.forEach((dado, index) => {
       quantidade[index] = dado.quantidadeBeneficiados;
       valor[index] = dado.valor;
@@ -143,10 +141,6 @@ export class FormComponent implements OnInit {
 
   ngOnInit() {
     this.listaEstados();
-  }
-
-  logThis(newValue: any) {
-    console.log(newValue);
   }
 
 }
